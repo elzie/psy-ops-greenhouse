@@ -1,0 +1,19 @@
+{
+  "name": "psy-ops-greenhouse",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elzie/psy-ops-greenhouse.git"
+  },
+  "author": "DKB",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elzie/psy-ops-greenhouse/issues"
+  },
+  "homepage": "https://github.com/elzie/psy-ops-greenhouse#readme",
+  "description": ""
+}
