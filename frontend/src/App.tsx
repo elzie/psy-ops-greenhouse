@@ -1,7 +1,8 @@
 
 import './App.css'
 import React, { useState, useEffect } from 'react';
-import MainFrame from './components/MainFrame';
+import MainFrame from './components/MainFrame/MainFrame';
+
 export default function App() {
   const [data, setData] = useState(null);
   const [now, setNow] = useState(new Date());
@@ -35,12 +36,10 @@ export default function App() {
   }, []);
 
   return (
-    <div className="p-4 text-xl text-green-500 font-mono">
-      Backend siger: {msg}
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    <MainFrame data={data} toggleOutput={toggleOutput} />
+    <div>
+      
+    <MainFrame data={data} toggleOutput={toggleOutput}/>
+
     </div>
   );
 }
