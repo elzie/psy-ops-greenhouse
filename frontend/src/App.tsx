@@ -13,26 +13,27 @@ export default function App() {
       const res = await fetch('http://192.168.0.111:3000/data');
       const json = await res.json();
       setData(json);
-      console.log('json: ', json);
+      //console.log('json: ', json);
     } catch (error) {
       console.error('Fejl ved hentning af data:', error);
     }
   };
-
+  fetchData();
   const toggleOutput = async (index:any) => {
     try {
       await fetch(`http://192.168.0.111:3000/toggle-output/${index}`, {
         method: 'POST',
       });
-      fetchData();
+      console.log('client toggleOutput:', index);
     } catch (error) {
       console.error(`Fejl ved toggling af output ${index}:`, error);
     }
   }
   useEffect(() => {
+    
     fetch('/api/ping')
       .then(res => res.json())
-      .then(data => setMsg(data.msg));
+      .then(msg => setMsg(msg.msg));
   }, []);
 
   return (

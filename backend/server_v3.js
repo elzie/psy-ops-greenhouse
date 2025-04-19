@@ -36,7 +36,7 @@ client.connectTCP(PLC_IP, { port: PLC_PORT }).then(() => {
 app.get('/api/ping', (req, res) => {
   res.json({ msg: "pong" });
 });
-// L�s data
+// L?s data
 app.get('/data', async (req, res) => {
   try {
     console.log('Henter data fra PLC...');
@@ -49,7 +49,7 @@ app.get('/data', async (req, res) => {
       inputs: dataInputRegisters.data
     });
   } catch (err) {
-    console.error('Fejl ved l�sning: ', err);
+    console.error('Fejl ved l?sning: ', err);
     res.status(500).send(err.toString());
   }
 });
@@ -79,5 +79,5 @@ app.post('/toggle-output/:index', async (req, res) => {
 });
 
 app.listen(3000, '0.0.0.0', () => {
-  console.log('Serveren k�rer p� http://localhost:3000');
+  console.log('Serveren k?rer p? http://localhost:3000');
 });

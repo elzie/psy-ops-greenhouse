@@ -1,0 +1,14 @@
+
+
+    .psy-theme-inactive{
+        border-color: rgba(0, 162, 255, 0.5);
+        background-color: rgba(0, 162, 255, 0.3);
+        box-shadow: 0 0 5px rgba(0, 162, 255, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .psy-theme-active{
+        background-color: rgba(0, 255, 136, 0.3);
+        border-color: rgba(0, 255, 136, 0.5);
+        box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+    }

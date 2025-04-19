@@ -1,0 +1,15 @@
+.bar-container{
+    width: 350px;
+    padding-right: 25px;
+    position: relative;
+}
+/*
+.barSegment-inactive {
+    border-color: #057CC2;
+    background-color: rgba(0, 118, 187, 0.3);
+    box-shadow: 0 0 5px rgba(0, 162, 255, 0.3);
+}
+
+.barSegment-active {
+    background-color: rgba(0, 162, 255, 0.5);
+}*/
