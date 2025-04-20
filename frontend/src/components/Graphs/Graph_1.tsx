@@ -13,7 +13,7 @@ export default function GraphOne({data}:any) {
     const timestamp = new Date().toLocaleTimeString();
     const newValue = {
       time: timestamp,
-      value: Math.round((data.inputs[0] / 1000) * 100)
+      value: Math.round((data.inputs[0] / 1000) * 104)
     };
 //console.log('new value:', newValue);
     setGraphValues(prev => {

@@ -396,12 +396,12 @@
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
       }
       .state-3 ~ .holo-button-status-text::before {
-        content: "SYSTEM ONLINE";
+        content: "SYSTEM AWAITING";
         color: rgba(255, 145, 0, 0.8);
         text-shadow: 0 0 5px rgba(255, 145, 0, 0.5);
       }
       .state-4 ~ .holo-button-status-text::before {
-        content: "SYSTEM ONLINE";
+        content: "SYSTEM ERROR";
         color: rgba(216, 0, 0, 0.8);
         text-shadow: 0 0 5px rgba(216, 0, 0, 0.5);
       }

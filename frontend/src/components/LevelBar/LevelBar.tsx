@@ -25,7 +25,8 @@ export default function FillLevelBar({ data }) {
   }, [targetFilled]);
 
   return (
-<div className="p-4 rounded-md bar-container">
+<div className="levelbar-container">
+
   <div className="flex gap-[4px]">
     {Array.from({ length: totalSegments -1 }, (_, i) => (
       <div
@@ -40,6 +41,9 @@ export default function FillLevelBar({ data }) {
       `}
     ></div>
     ))}
+  </div>
+  <div className="levelbar-data-chips">
+    <div className="levelbar-data-chip">{Math.round((data.inputs[0] / 1000) * 104)}%</div>
   </div>
 </div>
   );

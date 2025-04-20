@@ -15,13 +15,7 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
     const ventilation = 'VENTILATION';
     
 
-    const [state, setState] = useState<1 | 2 | 3 | 4>(1);
-
-    const handleClick = () => {
-        setState((prev) => (prev % 4 + 1) as 1 | 2 | 3 | 4);
-        console.log('click');
-    };
-    const testButton = state;
+    const testButton = 'test';
     return(
         <div className='mainframe-container'>
 
@@ -32,7 +26,7 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
                 1
                 </div>
                 <div className="col-start-3 row-start-3 ui-small-box">2
-                <TestButton data={data} state={state} onClick={handleClick} name={testButton} />
+                
                 <HoloButton data={data} toggleOutput={toggleOutput}/>
                 <HoloIndicator data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={vandPumpe}/>
                 <VentButton data={data} name={ventilation}/>
@@ -47,7 +41,8 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
                     4
                 </div>
                 <div className="row-span-2 col-start-1 row-start-3 ui-small-box">
-                
+                <TestButton data={data} toggleOutput={toggleOutput} name={testButton} />
+                <TestButton data={data} toggleOutput={toggleOutput} name={testButton} />
                 5
                 
                 </div>
