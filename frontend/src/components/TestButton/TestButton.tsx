@@ -1,12 +1,12 @@
 import React from "react";
 import './style.css';
 
-type StateToggleProps = {
-    state: 1 | 2 | 3 | 4;
-    onClick?: () => void;
-  };
-export default function TestButton({state, onClick}:any) {
-    const className = `state-toggle state-${state}`;
+
+export default function TestButton({ data, state, onClick, name}:any) {
+    if (!data || !data.inputs) {
+        return <div>...</div>;
+      }
+    const className = `state-${state}`;
 
     return(
         <div>
@@ -50,7 +50,7 @@ export default function TestButton({state, onClick}:any) {
                 <div className="holo-button-holo-button-glow"></div>
             </label>
 
-            <div className="holo-button-input-name" id="holo-button-input-name">name</div>
+            <div className="holo-button-input-name" id="holo-button-input-name">{name}</div>
             <div className="holo-button-status-text" id="holo-button-status-text"></div>
             <div className="holo-button-data-chips">
               <div className="holo-button-data-chip">dataChip</div>

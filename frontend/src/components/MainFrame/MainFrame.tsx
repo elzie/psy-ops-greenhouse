@@ -13,12 +13,15 @@ import HoloConsole from "../HoloConsole/HoloConsole";
 export default function MainFrame({ data, toggleOutput, setMemory }:any){
     const vandPumpe = 'VANDPUMPE';
     const ventilation = 'VENTILATION';
+    
+
     const [state, setState] = useState<1 | 2 | 3 | 4>(1);
 
     const handleClick = () => {
         setState((prev) => (prev % 4 + 1) as 1 | 2 | 3 | 4);
         console.log('click');
     };
+    const testButton = state;
     return(
         <div className='mainframe-container'>
 
@@ -29,7 +32,7 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
                 1
                 </div>
                 <div className="col-start-3 row-start-3 ui-small-box">2
-                    <TestButton state={state} onClick={handleClick} />
+                <TestButton data={data} state={state} onClick={handleClick} name={testButton} />
                 <HoloButton data={data} toggleOutput={toggleOutput}/>
                 <HoloIndicator data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={vandPumpe}/>
                 <VentButton data={data} name={ventilation}/>
@@ -53,19 +56,9 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
                     6
                 </div>
             </div>
-                
             
-
-    
-            <div className="stars-container">
-            <div className="star-layer"></div>
-            <div className="star-layer"></div>
-            <div className="star-layer"></div>
-            </div>
             <div className="grid-plane">
-            </div>
-             
-           
+            </div>           
         </div>
     )
 }

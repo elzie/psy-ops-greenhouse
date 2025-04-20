@@ -116,16 +116,41 @@
         }
       }
       
-      .state-3 + .holo-button-checkbox .holo-button-box {
+      .state-2 + .holo-button-checkbox .holo-button-box {
         border-color: rgba(0, 255, 136, 0.7);
         box-shadow:
           0 0 10px rgba(0, 255, 136, 0.6),
           inset 0 0 15px rgba(0, 255, 136, 0.4);
       }
       
-      .state-3 + .holo-button-checkbox .holo-button-inner {
+      .state-2 + .holo-button-checkbox .holo-button-inner {
         background-color: rgba(0, 255, 136, 0.7);
         box-shadow: 0 0 15px rgba(0, 255, 136, 1);
+        opacity: 1;
+        transform: scale(1) rotate(45deg);
+      }
+      
+      .state-2 + .holo-button-checkbox .scan-effect {
+        animation: scan-on 2s infinite;
+        opacity: 1;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 255, 136, 0.8),
+          transparent
+        );
+      }
+      /**/
+      .state-3 + .holo-button-checkbox .holo-button-box {
+        border-color: rgba(255, 135, 0, 0.7);
+        box-shadow:
+          0 0 10px rgba(255, 135, 0, 0.6),
+          inset 0 0 15px rgba(255, 135, 0, 0.4);
+      }
+      
+      .state-3 + .holo-button-checkbox .holo-button-inner {
+        background-color: rgba(255, 135, 0, 0.7);
+        box-shadow: 0 0 15px rgba(255, 135, 0, 1);
         opacity: 1;
         transform: scale(1) rotate(45deg);
       }
@@ -136,7 +161,7 @@
         background: linear-gradient(
           90deg,
           transparent,
-          rgba(0, 255, 136, 0.8),
+          rgba(255, 135, 0, 0.8),
           transparent
         );
       }
@@ -199,11 +224,20 @@
         }
       }
       
-      .state-3 + .holo-button-checkbox .holo-button-glow {
+      .state-2 + .holo-button-checkbox .holo-button-glow {
         background: radial-gradient(
           ellipse at center,
           rgba(0, 255, 136, 0.2) 0%,
           rgba(0, 255, 136, 0.1) 40%,
+          rgba(0, 0, 0, 0) 70%
+        );
+        animation: active-glow-pulse 2s infinite alternate;
+      }
+      .state-3 + .holo-button-checkbox .holo-button-glow {
+        background: radial-gradient(
+          ellipse at center,
+          rgba(255, 145, 0, 0.2) 0%,
+          rgba(255, 145, 0, 0.1) 40%,
           rgba(0, 0, 0, 0) 70%
         );
         animation: active-glow-pulse 2s infinite alternate;
@@ -271,10 +305,15 @@
         border-radius: 0 0 5px 0;
       }
       
-      .state-3 + .holo-button-checkbox .holo-button-corner-accent {
+      .state-2 + .holo-button-checkbox .holo-button-corner-accent {
         width: 20px;
         height: 20px;
         border-color: rgba(0, 255, 136, 0.7);
+      }
+      .state-3 + .holo-button-checkbox .holo-button-corner-accent {
+        width: 20px;
+        height: 20px;
+        border-color: rgba(255, 145, 0, 0.7);
       }
       .state-4 + .holo-button-checkbox .holo-button-corner-accent {
         width: 20px;
@@ -295,8 +334,12 @@
         position: relative;
         transition: all 0.4s ease;
       }
-      .state-3 ~ .holo-button-input-name { /*#*/
+      .state-2 ~ .holo-button-input-name { /*#*/
         color: rgba(0, 255, 136, 0.8);
+        text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+      }
+      .state-3 ~ .holo-button-input-name { /*#*/
+        color: rgba(255, 145, 0, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
       }
       .state-4 ~ .holo-button-input-name { /*#*/
@@ -311,8 +354,12 @@
         width: 100%;
         height: 100%;
       }
-      .state-3 ~ .holo-button-input-name::before {
+      .state-2 ~ .holo-button-input-name::before {
         color: rgba(0, 255, 136, 0.8);
+        text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+      }
+      .state-3 ~ .holo-button-input-name::before {
+        color: rgba(255, 145, 0, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
       }
       .state-4 ~ .holo-button-input-name::before {
@@ -343,10 +390,15 @@
         height: 100%;
       }
       
-      .state-3 ~ .holo-button-status-text::before {
+      .state-2 ~ .holo-button-status-text::before {
         content: "SYSTEM ONLINE";
         color: rgba(0, 255, 136, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+      }
+      .state-3 ~ .holo-button-status-text::before {
+        content: "SYSTEM ONLINE";
+        color: rgba(255, 145, 0, 0.8);
+        text-shadow: 0 0 5px rgba(255, 145, 0, 0.5);
       }
       .state-4 ~ .holo-button-status-text::before {
         content: "SYSTEM ONLINE";
@@ -374,9 +426,26 @@
         transition: all 0.3s ease;
       }
       
-      .state-3 + .holo-button-checkbox .holo-button-activation-ring {
+      .state-2 + .holo-button-checkbox .holo-button-activation-ring {
         animation: ring-expand 2s ease-out forwards;
         border-color: rgba(0, 255, 136, 0.7);
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-activation-ring:nth-child(1) {
+        animation-delay: 0s;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-activation-ring:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-activation-ring:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+      /***/
+      .state-3 + .holo-button-checkbox .holo-button-activation-ring {
+        animation: ring-expand 2s ease-out forwards;
+        border-color: rgba(255, 145, 0, 0.7);
       }
       
       .state-3 + .holo-button-checkbox .holo-button-activation-ring:nth-child(1) {
@@ -390,6 +459,8 @@
       .state-3 + .holo-button-checkbox .holo-button-activation-ring:nth-child(3) {
         animation-delay: 0.6s;
       }
+
+      /***/
       .state-4 + .holo-button-checkbox .holo-button-activation-ring {
         animation: ring-expand 2s ease-out forwards;
         border-color: rgba(216, 0, 0, 0.7);
@@ -436,8 +507,49 @@
         transition: all 0.3s ease;
       }
       
-      .state-3 + .holo-button-checkbox .holo-button-particle {
+      .state-2 + .holo-button-checkbox .holo-button-particle {
         background-color: rgba(0, 255, 136, 0.7);
+        animation: particle-float 3s infinite ease-in-out;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-particle:nth-child(1) {
+        top: 20%;
+        left: 30%;
+        animation-delay: 0.1s;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-particle:nth-child(2) {
+        top: 70%;
+        left: 20%;
+        animation-delay: 0.7s;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-particle:nth-child(3) {
+        top: 40%;
+        left: 80%;
+        animation-delay: 1.3s;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-particle:nth-child(4) {
+        top: 60%;
+        left: 60%;
+        animation-delay: 1.9s;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-particle:nth-child(5) {
+        top: 30%;
+        left: 45%;
+        animation-delay: 2.5s;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-particle:nth-child(6) {
+        top: 60%;
+        left: 40%;
+        animation-delay: 3.1s;
+      }
+      /**/
+      .state-3 + .holo-button-checkbox .holo-button-particle {
+        background-color: rgba(255, 145, 0, 0.7);
         animation: particle-float 3s infinite ease-in-out;
       }
       
@@ -553,15 +665,50 @@
         transition: all 0.3s ease;
       }
       
+      .state-2 + .holo-button-checkbox .holo-button-cube-transform {
+        opacity: 1;
+        animation: cube-rotate 5s infinite linear;
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-cube-face {
+        background-color: rgba(0, 255, 136, 0.3);
+        border-color: rgba(0, 255, 136, 0.5);
+        box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-cube-face:nth-child(1) {
+        transform: translateZ(15px);
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-cube-face:nth-child(2) {
+        transform: rotateY(180deg) translateZ(15px);
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-cube-face:nth-child(3) {
+        transform: rotateY(90deg) translateZ(15px);
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-cube-face:nth-child(4) {
+        transform: rotateY(-90deg) translateZ(15px);
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-cube-face:nth-child(5) {
+        transform: rotateX(90deg) translateZ(15px);
+      }
+      
+      .state-2 + .holo-button-checkbox .holo-button-cube-face:nth-child(6) {
+        transform: rotateX(-90deg) translateZ(15px);
+      }
+      /**/
       .state-3 + .holo-button-checkbox .holo-button-cube-transform {
         opacity: 1;
         animation: cube-rotate 5s infinite linear;
       }
       
       .state-3 + .holo-button-checkbox .holo-button-cube-face {
-        background-color: rgba(0, 255, 136, 0.3);
-        border-color: rgba(0, 255, 136, 0.5);
-        box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
+        background-color: rgba(255, 145, 0, 0.3);
+        border-color: rgba(255, 145, 0, 0.5);
+        box-shadow: 0 0 5px rgba(255, 145, 0, 0.3);
       }
       
       .state-3 + .holo-button-checkbox .holo-button-cube-face:nth-child(1) {
@@ -651,8 +798,96 @@
           background 0.3s ease;
       }
       
-      .state-3 ~ .holo-button-frequency-spectrum .holo-button-frequency-bar {
+      .state-2 ~ .holo-button-frequency-spectrum .holo-button-frequency-bar {
         background: rgba(0, 255, 136, 0.5);
+        animation: frequency-animation 1.5s infinite ease;
+      }
+      
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(3) {
+        animation-delay: 0.1s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(4) {
+        animation-delay: 0.3s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(6) {
+        animation-delay: 0.2s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(7) {
+        animation-delay: 0.4s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(8) {
+        animation-delay: 0.1s;
+      }
+      .state-2 ~ .frequency-spectrum .frequency-bar:nth-child(9) {
+        animation-delay: 0.3s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(10) {
+        animation-delay: 0.2s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(11) {
+        animation-delay: 0.5s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(12) {
+        animation-delay: 0.3s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(13) {
+        animation-delay: 0.1s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(14) {
+        animation-delay: 0.4s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(15) {
+        animation-delay: 0.2s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(16) {
+        animation-delay: 0.3s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(17) {
+        animation-delay: 0.1s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(18) {
+        animation-delay: 0.5s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(19) {
+        animation-delay: 0.2s;
+      }
+      .state-2
+        ~ .frequency-spectrum
+        .frequency-bar:nth-child(20) {
+        animation-delay: 0.4s;
+      }
+      /**/
+      .state-3 ~ .holo-button-frequency-spectrum .holo-button-frequency-bar {
+        background: rgba(255, 145, 0, 0.5);
         animation: frequency-animation 1.5s infinite ease;
       }
       
@@ -737,7 +972,8 @@
         ~ .frequency-spectrum
         .frequency-bar:nth-child(20) {
         animation-delay: 0.4s;
-      }/**/
+      }
+      /**/
       .state-4 ~ .holo-button-frequency-spectrum .holo-button-frequency-bar {
         background: rgba(216, 0, 0, 0.5);
         animation: frequency-animation 1.5s infinite ease;
@@ -849,9 +1085,19 @@
         transition: all 0.3s ease;
       }
       
-      .state-3 ~ .holo-button-label {
+      .state-2 ~ .holo-button-label {
         color: rgba(0, 255, 136, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
+      }
+
+      .state-3 ~ .holo-button-label {
+        color: rgba(255, 145, 0, 0.8);
+        text-shadow: 0 0 5px rgba(255, 145, 0, 0.5);
+      }
+
+      .state-4 ~ .holo-button-label {
+        color: rgba(216, 0, 0, 0.8);
+        text-shadow: 0 0 5px rgba(216, 0, 0, 0.5);
       }
       
       .holo-button-data-chips {
@@ -874,9 +1120,19 @@
         transition: all 0.3s ease;
       }
       
-      .state-3 ~ .holo-button-data-chips .holo-button-data-chip {
+      .state-2 ~ .holo-button-data-chips .holo-button-data-chip {
         animation: chip-appear 0.5s ease forwards;
         border-color: rgba(0, 255, 136, 0.5);
+      }
+
+      .state-3 ~ .holo-button-data-chips .holo-button-data-chip {
+        animation: chip-appear 0.5s ease forwards;
+        border-color: rgba(255, 145, 0, 0.5);
+      }
+
+      .state-4 ~ .holo-button-data-chips .holo-button-data-chip {
+        animation: chip-appear 0.5s ease forwards;
+        border-color: rgba(216, 0, 0, 0.5);
       }
       
       @keyframes chip-appear {
