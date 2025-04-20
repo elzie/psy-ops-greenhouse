@@ -1,5 +1,5 @@
  
-.holo-indicator-container{
+.holo-vent-container{
     width: 80px;
     position: relative;
     z-index: 25;
@@ -9,7 +9,8 @@
     justify-content: center;
       }
 
-      .checkbox-container {
+
+      .holo-vent-checkbox-container {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -21,14 +22,14 @@
       }
       
     
-      .holo-indicator-checkbox-input {
+      .holo-vent-checkbox-input {
         position: absolute;
         opacity: 0;
         width: 0;
         height: 0;
       }
       
-      .holo-indicator-checkbox {
+      .holo-vent-checkbox {
         position: relative;
         width: 80px;
         height: 80px;
@@ -40,7 +41,7 @@
         align-items: center;
       }
       
-      .holo-indicator-box {
+      .holo-vent-box {
         position: relative;
         width: 100%;
         height: 100%;
@@ -58,7 +59,7 @@
         transform-style: preserve-3d;
       }
       
-      .holo-indicator-inner {
+      .holo-vent-inner {
         position: absolute;
         width: 30%;
         height: 30%;
@@ -70,7 +71,7 @@
         box-shadow: 0 0 15px rgba(0, 162, 255, 0.8);
       }
       
-      .scan-effect {
+      .holo-vent-scan-effect {
         position: absolute;
         top: 0;
         left: -100%;
@@ -109,21 +110,21 @@
         }
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-box {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-box {
         border-color: rgba(0, 255, 136, 0.7);
         box-shadow:
           0 0 10px rgba(0, 255, 136, 0.6),
           inset 0 0 15px rgba(0, 255, 136, 0.4);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-inner {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-inner {
         background-color: rgba(0, 255, 136, 0.7);
         box-shadow: 0 0 15px rgba(0, 255, 136, 1);
         opacity: 1;
         transform: scale(1) rotate(45deg);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .scan-effect {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .scan-effect {
         animation: scan-on 2s infinite;
         opacity: 1;
         background: linear-gradient(
@@ -134,7 +135,7 @@
         );
       }
       
-      .holo-indicator-glow {
+      .holo-vent-glow {
         position: absolute;
         width: 200%;
         height: 200%;
@@ -165,7 +166,7 @@
         }
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-glow {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-glow {
         background: radial-gradient(
           ellipse at center,
           rgba(0, 255, 136, 0.2) 0%,
@@ -186,7 +187,7 @@
         }
       }
       
-      .corner-accent {
+      .holo-vent-corner-accent {
         position: absolute;
         width: 15px;
         height: 15px;
@@ -196,7 +197,7 @@
         transition: all 0.3s ease;
       }
       
-      .corner-accent:nth-child(1) {
+      .holo-vent-corner-accent:nth-child(1) {
         top: -5px;
         left: -5px;
         border-right: none;
@@ -204,7 +205,7 @@
         border-radius: 5px 0 0 0;
       }
       
-      .corner-accent:nth-child(2) {
+      .holo-vent-corner-accent:nth-child(2) {
         top: -5px;
         right: -5px;
         border-left: none;
@@ -212,7 +213,7 @@
         border-radius: 0 5px 0 0;
       }
       
-      .corner-accent:nth-child(3) {
+      .holo-vent-corner-accent:nth-child(3) {
         bottom: -5px;
         left: -5px;
         border-right: none;
@@ -220,7 +221,7 @@
         border-radius: 0 0 0 5px;
       }
       
-      .corner-accent:nth-child(4) {
+      .holo-vent-corner-accent:nth-child(4) {
         bottom: -5px;
         right: -5px;
         border-left: none;
@@ -228,15 +229,15 @@
         border-radius: 0 0 5px 0;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .corner-accent {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-corner-accent {
         width: 20px;
         height: 20px;
         border-color: rgba(0, 255, 136, 0.7);
       }
-      #input-name2{
+      #holo-vent-input-name{
         margin-top: -110px;
       }
-      .input-name2{
+      .holo-vent-input-name{
         content: "";
         margin-top: -20px;
         margin-left: 0px;
@@ -247,7 +248,7 @@
         position: relative;
         transition: all 0.4s ease;
       }
-      #holo-indicator-check:checked ~ .input-name2 {
+      #holo-vent-check:checked ~ .holo-vent-input-name {
         color: rgba(0, 255, 136, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
       }
@@ -259,16 +260,16 @@
         width: 100%;
         height: 100%;
       }
-      .holo-indicator-checkbox-input:checked ~ .input-name2::before {
+      .holo-vent-checkbox-input:checked ~ .holo-vent-input-name::before {
         
         color: rgba(0, 255, 136, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
       }
-      #status-text2{
+      #holo-vent-status-text{
         margin-top: 93px;
         margin-left: -60px;
       }
-      .status-text2 {
+      .holo-vent-status-text {
         margin-top: 5px;
         margin-left: 10px;
         font-size: 16px;
@@ -279,7 +280,7 @@
         transition: all 0.4s ease;
       }
       
-      .status-text2::before {
+      .holo-vent-status-text::before {
         content: "SYSTEM OFFLINE";
         position: absolute;
         top: 0;
@@ -288,20 +289,20 @@
         height: 100%;
       }
       
-      .holo-indicator-checkbox-input:checked ~ .status-text2::before {
+      .holo-vent-checkbox-input:checked ~ .holo-vent-status-text::before {
         content: "SYSTEM ONLINE";
         color: rgba(0, 255, 136, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
       }
       
-      .activation-rings {
+      .holo-vent-activation-rings {
         position: absolute;
         width: 100%;
         height: 100%;
         pointer-events: none;
       }
       
-      .activation-ring {
+      .holo-vent-activation-ring {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -314,20 +315,20 @@
         transition: all 0.3s ease;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .activation-ring {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-activation-ring {
         animation: ring-expand 2s ease-out forwards;
         border-color: rgba(0, 255, 136, 0.7);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .activation-ring:nth-child(1) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-activation-ring:nth-child(1) {
         animation-delay: 0s;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .activation-ring:nth-child(2) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-activation-ring:nth-child(2) {
         animation-delay: 0.3s;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .activation-ring:nth-child(3) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-activation-ring:nth-child(3) {
         animation-delay: 0.6s;
       }
       
@@ -342,14 +343,14 @@
         }
       }
       
-      .holo-indicator-particles {
+      .holo-vent-particles {
         position: absolute;
         width: 100%;
         height: 100%;
         pointer-events: none;
       }
       
-      .holo-indicator-particle {
+      .holo-vent-particle {
         position: absolute;
         background-color: rgba(0, 162, 255, 0.7);
         border-radius: 50%;
@@ -360,42 +361,42 @@
         transition: all 0.3s ease;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-particle {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-particle {
         background-color: rgba(0, 255, 136, 0.7);
         animation: particle-float 3s infinite ease-in-out;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-particle:nth-child(1) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-particle:nth-child(1) {
         top: 20%;
         left: 30%;
         animation-delay: 0.1s;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-particle:nth-child(2) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-particle:nth-child(2) {
         top: 70%;
         left: 20%;
         animation-delay: 0.7s;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-particle:nth-child(3) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-particle:nth-child(3) {
         top: 40%;
         left: 80%;
         animation-delay: 1.3s;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-particle:nth-child(4) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-particle:nth-child(4) {
         top: 60%;
         left: 60%;
         animation-delay: 1.9s;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-particle:nth-child(5) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-particle:nth-child(5) {
         top: 30%;
         left: 45%;
         animation-delay: 2.5s;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .holo-indicator-particle:nth-child(6) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-particle:nth-child(6) {
         top: 60%;
         left: 40%;
         animation-delay: 3.1s;
@@ -418,7 +419,7 @@
         }
       }
       
-      .cube-transform {
+      .holo-vent-cube-transform {
         position: absolute;
         width: 30%;
         height: 30%;
@@ -427,7 +428,7 @@
         transition: opacity 0.3s ease;
       }
       
-      .cube-face {
+      .holo-vent-cube-face {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -437,38 +438,38 @@
         transition: all 0.3s ease;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-transform {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-transform {
         opacity: 1;
         animation: cube-rotate 5s infinite linear;
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-face {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-face {
         background-color: rgba(0, 255, 136, 0.3);
         border-color: rgba(0, 255, 136, 0.5);
         box-shadow: 0 0 5px rgba(0, 255, 136, 0.3);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-face:nth-child(1) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-face:nth-child(1) {
         transform: translateZ(15px);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-face:nth-child(2) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-face:nth-child(2) {
         transform: rotateY(180deg) translateZ(15px);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-face:nth-child(3) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-face:nth-child(3) {
         transform: rotateY(90deg) translateZ(15px);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-face:nth-child(4) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-face:nth-child(4) {
         transform: rotateY(-90deg) translateZ(15px);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-face:nth-child(5) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-face:nth-child(5) {
         transform: rotateX(90deg) translateZ(15px);
       }
       
-      .holo-indicator-checkbox-input:checked + .holo-indicator-checkbox .cube-face:nth-child(6) {
+      .holo-vent-checkbox-input:checked + .holo-vent-checkbox .holo-vent-cube-face:nth-child(6) {
         transform: rotateX(-90deg) translateZ(15px);
       }
       
@@ -481,7 +482,7 @@
         }
       }
       
-      .frequency-spectrum {
+      .holo-vent-frequency-spectrum {
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -491,7 +492,7 @@
         gap: 3px;
       }
       
-      .frequency-bar {
+      .holo-vent-frequency-bar {
         width: 4px;
         height: 5px;
         background: rgba(0, 162, 255, 0.5);
@@ -501,89 +502,89 @@
           background 0.3s ease;
       }
       
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar {
+      .holo-vent-checkbox-input:checked ~ .holo-vent-frequency-spectrum .holo-vent-frequency-bar {
         background: rgba(0, 255, 136, 0.5);
         animation: frequency-animation 1.5s infinite ease;
       }
       
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(1) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(1) {
         animation-delay: 0.1s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(2) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(2) {
         animation-delay: 0.2s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(3) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(3) {
         animation-delay: 0.1s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(4) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(4) {
         animation-delay: 0.3s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(5) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(5) {
         animation-delay: 0.5s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(6) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(6) {
         animation-delay: 0.2s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(7) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(7) {
         animation-delay: 0.4s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(8) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(8) {
         animation-delay: 0.1s;
       }
-      .holo-indicator-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(9) {
+      .holo-vent-checkbox-input:checked ~ .frequency-spectrum .frequency-bar:nth-child(9) {
         animation-delay: 0.3s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(10) {
         animation-delay: 0.2s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(11) {
         animation-delay: 0.5s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(12) {
         animation-delay: 0.3s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(13) {
         animation-delay: 0.1s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(14) {
         animation-delay: 0.4s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(15) {
         animation-delay: 0.2s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(16) {
         animation-delay: 0.3s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(17) {
         animation-delay: 0.1s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(18) {
         animation-delay: 0.5s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(19) {
         animation-delay: 0.2s;
       }
-      .holo-indicator-checkbox-input:checked
+      .holo-vent-checkbox-input:checked
         ~ .frequency-spectrum
         .frequency-bar:nth-child(20) {
         animation-delay: 0.4s;
@@ -601,7 +602,7 @@
         }
       }
       
-      .holo-indicator-label {
+      .holo-vent-label {
         position: absolute;
         bottom: -60px;
         font-size: 12px;
@@ -612,12 +613,12 @@
         transition: all 0.3s ease;
       }
       
-      .holo-indicator-checkbox-input:checked ~ .holo-indicator-label {
+      .holo-vent-checkbox-input:checked ~ .holo-vent-label {
         color: rgba(0, 255, 136, 0.8);
         text-shadow: 0 0 5px rgba(0, 255, 136, 0.5);
       }
       
-      .data-chips {
+      .holo-vent-data-chips {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -625,7 +626,7 @@
         color: white;
       }
       
-      .data-chip {
+      .holo-vent-data-chip {
         position: absolute;
         padding: 5px 8px;
         background-color: rgba(0, 24, 55, 0.7);
@@ -637,7 +638,7 @@
         transition: all 0.3s ease;
       }
       
-      .holo-indicator-checkbox-input:checked ~ .data-chips .data-chip {
+      .holo-vent-checkbox-input:checked ~ .holo-vent-data-chips .holo-vent-data-chip {
         animation: chip-appear 0.5s ease forwards;
         border-color: rgba(0, 255, 136, 0.5);
       }
@@ -653,25 +654,25 @@
         }
       }
       
-      .data-chip:nth-child(1) {
-        top: -60px;
+      .holo-vent-data-chip:nth-child(1) {
+        top: -5px;
         left: 50px;
         animation-delay: 0.5s;
       }
       
-      .data-chip:nth-child(2) {
+      .holo-vent-data-chip:nth-child(2) {
         top: 40px;
         left: -120px;
         animation-delay: 1.2s;
       }
       
-      .data-chip:nth-child(3) {
+      .holo-vent-data-chip:nth-child(3) {
         top: 120px;
         left: 60px;
         animation-delay: 1.8s;
       }
       
-      .data-chip:nth-child(4) {
+      .holo-vent-data-chip:nth-child(4) {
         top: 20px;
         left: 120px;
         animation-delay: 2.3s;

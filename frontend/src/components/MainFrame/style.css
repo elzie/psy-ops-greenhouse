@@ -1,5 +1,6 @@
 .mainframe-container{
-    
+  background: #024B5C;
+background: linear-gradient(0deg, rgba(2, 75, 92, 1) 0%, rgba(1, 35, 45, 1) 20%, rgba(0, 19, 26, 1) 100%);
     width: 100vw;
     height: 100vh;
     overflow: hidden;
@@ -11,12 +12,13 @@
     z-index: 10;
 }
 .ui-container{
-  width: 75vw;
-  height: 75vh;
-  border: 2px solid rgba(0, 162, 255, 0.7);
+  width: 100vw;
+  height: 100vh;
+  padding: 30px
+  /*border: 2px solid rgba(0, 162, 255, 0.7);
   border-radius: 12px;
   background-color: rgba(0, 24, 55, 0.5);
-  box-shadow: 0 0 10px rgba(0, 162, 255, 0.5), inset 0 0 15px rgba(0, 162, 255, 0.3);
+  box-shadow: 0 0 10px rgba(0, 162, 255, 0.5), inset 0 0 15px rgba(0, 162, 255, 0.3);*/
 }
 
 .ui-small-box{
@@ -26,7 +28,7 @@
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
-  border: 1px solid white;
+  /*border: 1px solid white;*/
 }
 
 .ui-main-box{}

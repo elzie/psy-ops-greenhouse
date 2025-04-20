@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-export default function GraphOne({data}) {
+export default function GraphOne({data}:any) {
   if (!data || !data.inputs) {
     return <div>Indlæser graf...</div>;
   }
@@ -15,7 +15,7 @@ export default function GraphOne({data}) {
       time: timestamp,
       value: Math.round((data.inputs[0] / 1000) * 100)
     };
-console.log('new value:', newValue);
+//console.log('new value:', newValue);
     setGraphValues(prev => {
       const updated = [...prev, newValue];
       return updated.slice(-20); // behold kun de seneste 20
@@ -24,7 +24,7 @@ console.log('new value:', newValue);
 
 
   return (
-<div style={{ width: '100%', height: 300 }}>
+<div style={{ width: '100%', height: '100%' }}>
       <ResponsiveContainer>
         <LineChart data={graphValues}>
           <CartesianGrid strokeDasharray="3 3" />
