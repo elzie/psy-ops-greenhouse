@@ -41,8 +41,10 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
                     4
                 </div>
                 <div className="row-span-2 col-start-1 row-start-3 ui-small-box">
-                <TestButton data={data} toggleOutput={toggleOutput} name={testButton} />
-                <TestButton data={data} toggleOutput={toggleOutput} name={testButton} />
+                <TestButton data={data} toggleOutput={toggleOutput} name={'VÆKSTLYS'} buttonState={1} />
+                <TestButton data={data} toggleOutput={toggleOutput} name={'VANDPUMPE'} buttonState={2} />
+                <TestButton data={data} toggleOutput={toggleOutput} name={'VENTILATION'} buttonState={3}/>
+                <TestButton data={data} toggleOutput={toggleOutput} name={'VENTILATION'} buttonState={4}/>
                 5
                 
                 </div>

@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import './style.css';
 
 
-export default function TestButton({ data, toggleOutput, name }:any) {
+export default function TestButton({ data, toggleOutput, name, buttonState }:any) {
     if (!data || !data.inputs) {
         return <div>...</div>;
       }
     const [state, setState] = useState<1 | 2 | 3 | 4>(1);
-       
+    
+
     const handleClick = () => {
        setState((prev) => (prev % 4 + 1) as 1 | 2 | 3 | 4);
-       //console.log('click');
+       console.log('click');
        if(data.coilsM[22]){
            console.log(data.coilsM[22]);
-            setState(3);
         }
-        toggleOutput(2);
+    //toggleOutput(2);
+    
+      
     };
     
     const componentName = name;
@@ -63,7 +65,7 @@ export default function TestButton({ data, toggleOutput, name }:any) {
                 <div className="holo-button-holo-button-glow"></div>
             </label>
 
-            <div className="holo-button-input-name" id="holo-button-input-name">{componentName}{state}</div>
+            <div className="holo-button-input-name" id="holo-button-input-name">{componentName}</div>
             <div className="holo-button-status-text" id="holo-button-status-text"></div>
             <div className="holo-button-data-chips">
               <div className="holo-button-data-chip">{Math.round((data.inputs[0] / 1000) * 104)}%</div>

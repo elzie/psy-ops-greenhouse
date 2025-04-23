@@ -67,9 +67,11 @@ app.get('/data', async (req, res) => {
     //console.log('Henter data fra PLC...');
 
     const dataCoilsQ = await client.readCoils(8192, 8);
+    ///const coilsAddr = await client.readCoils(8192, 8).coilAddress;
     const dataInputRegisters = await client.readInputRegisters(0, 8);
-    const dataCoilsM = await client.readCoils(8256, 30);
+    const dataCoilsM = await client.readCoils(8278, 8);
     res.json({
+      //coilsAddr: coilsAddr.data,
       coils: dataCoilsQ.data,
       inputs: dataInputRegisters.data,
       coilsM: dataCoilsM.data,
