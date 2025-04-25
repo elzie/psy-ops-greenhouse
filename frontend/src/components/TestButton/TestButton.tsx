@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './style.css';
 
 
-export default function TestButton({ data, toggleOutput, name, buttonState }:any) {
+export default function TestButton({ data, toggleOutput, name, activeCoil }:any) {
     if (!data || !data.inputs) {
         return <div>...</div>;
       }
@@ -10,14 +10,10 @@ export default function TestButton({ data, toggleOutput, name, buttonState }:any
     
 
     const handleClick = () => {
+    //    if(activeCoil === 3 && data.coils[0] === true)
+    //    setState(2);
+       
        setState((prev) => (prev % 4 + 1) as 1 | 2 | 3 | 4);
-       console.log('click');
-       if(data.coilsM[22]){
-           console.log(data.coilsM[22]);
-        }
-    //toggleOutput(2);
-    
-      
     };
     
     const componentName = name;

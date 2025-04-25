@@ -90,13 +90,13 @@ app.post('/set-memory/:address', async (req, res) => {
   
 
   const coilAddress = 8256 + address;
-  console.log("Modtaget body:", req.params.index);
-  console.log("Modtaget body:", req.body);
+  //console.log("Modtaget body:", req.params.index);
+  //console.log("Modtaget body:", req.body);
   try {
     const { data: [currentState] } = await client.readCoils(coilAddress, 1);
-    console.log('currentState:', currentState);
+    //console.log('currentState:', currentState);
     const newState = !currentState;
-    console.log('newState:', newState);
+    //console.log('newState:', newState);
 
     await client.writeCoil(coilAddress, newState);
     console.log(`M${address} sat til ${newState}`);

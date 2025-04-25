@@ -5,7 +5,7 @@ import MainFrame from './components/MainFrame/MainFrame';
 
 export default function App() {
   const [data, setData] = useState(null);
-  const [coilState, setCoilState] = useState(null);
+  
   const [now, setNow] = useState(new Date());
   const [msg, setMsg] = useState('');
   
@@ -14,7 +14,7 @@ export default function App() {
       const res = await fetch('http://192.168.0.111:3000/data');
       const json = await res.json();
       setData(json);
-      setCoilState(json.coils);
+      
       //console.log('coilState: ', coilState);
     } catch (error) {
       console.error('Fejl ved hentning af data:', error);

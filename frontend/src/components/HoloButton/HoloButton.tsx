@@ -1,12 +1,12 @@
 import React from "react";
 import './style.css';
 
-export default function HoloButton({data, toggleOutput}){
+export default function HoloButton({data, toggleOutput,setMemory}){
     
     return(
         <div className="holobutton-container">
             
-            <input className="holo-checkbox-input" id="holo-check" type="checkbox" onClick={() => toggleOutput(2)} />
+            <input className="holo-checkbox-input" id="holo-check" type="checkbox" onClick={() => setMemory(23)} />
             <label className="holo-checkbox" htmlFor="holo-check">
                 <div className="holo-box">
                 <div className="holo-inner"></div>
