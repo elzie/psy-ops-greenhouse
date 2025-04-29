@@ -69,7 +69,7 @@ app.get('/data', async (req, res) => {
     const dataCoilsQ = await client.readCoils(8192, 8);
     ///const coilsAddr = await client.readCoils(8192, 8).coilAddress;
     const dataInputRegisters = await client.readInputRegisters(0, 8);
-    const dataCoilsM = await client.readCoils(8278, 8);
+    const dataCoilsM = await client.readCoils(8295, 8);
     res.json({
       //coilsAddr: coilsAddr.data,
       coils: dataCoilsQ.data,
@@ -99,7 +99,7 @@ app.post('/set-memory/:address', async (req, res) => {
     //console.log('newState:', newState);
 
     await client.writeCoil(coilAddress, newState);
-    console.log(`M${address} sat til ${newState}`);
+    console.log(`Flag M${address + 1} sat til ${newState}`);
     res.json({ success: true, address, newState });
   } catch (err) {
     console.error("Fejl ved skrivning af memory bit:", err);
@@ -113,7 +113,7 @@ app.post('/toggle-output/:index', async (req, res) => {
   const index = parseInt(req.params.index);
   const coilAddress = 8192 + index;
 
-  if (isNaN(index) || index < 0 || index > 7) {
+  if (isNaN(index) || index < 0 || index > 100) {
     return res.status(400).json({ error: 'Ugyldigt output index' });
   }
 
@@ -125,6 +125,7 @@ app.post('/toggle-output/:index', async (req, res) => {
     await client.writeCoil(coilAddress, newState);
 
     console.log(`Output ${index + 1} togglet til ${newState}`);
+    
     res.json({ success: true, index, newState });
   } catch (err) {
     console.error('Fejl ved toggling: ', err);

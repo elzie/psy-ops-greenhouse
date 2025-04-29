@@ -9,7 +9,7 @@ export default function HoloConsole({ data }:any) {
     return (
         <div>
             <div className="console-container">
-            {JSON.stringify(data, null, 2)}
+            <pre>{JSON.stringify(data, null, 2)}</pre>
             </div>
         </div>
     );

@@ -20,7 +20,7 @@ export default function App() {
       console.error('Fejl ved hentning af data:', error);
     }
   };
-  fetchData();
+  
 
 
   const toggleOutput = async (index:any) => {
@@ -35,23 +35,26 @@ export default function App() {
     
   }
   const setMemory = async (index:any) => {
+    const indexCorrected = index - 1;
     try {
-      await fetch(`http://192.168.0.111:3000/set-memory/${index}`, {
+      await fetch(`http://192.168.0.111:3000/set-memory/${indexCorrected}`, {
         method: 'POST',
         
       });
-      console.log('setMemory:', index);
+      console.log('All Current Data:', data);
+      
     } catch (error) {
       console.error(`Fejl ved setMemory ${index}:`, error);
     }
     fetchData();
-    console.log('Current M22 value:', data.coilsM[22]);
-    console.log('--- Læst fra PLC');
+     console.log('setMemory, PLC Flag: ', index);
+    //   console.log('Current M23 value:', data.coilsM[0]);
+    //   console.log('--------------- Læst fra PLC');
   }
 
 
 
-  
+  fetchData();
   useEffect(() => {
 
   }, []);

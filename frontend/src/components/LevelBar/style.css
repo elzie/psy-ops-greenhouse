@@ -1,11 +1,21 @@
-.levelbar-container{
+
+.container{
+    
+    
+    
+}
+.levelbar{
     border: 2px solid rgba(0, 162, 255, 0.7);
     border-radius: 12px;
     background-color: rgba(0, 24, 55, 0.5);
     box-shadow: 0 0 10px rgba(0, 162, 255, 0.5), inset 0 0 15px rgba(0, 162, 255, 0.3);
     position: relative;
-    padding: 10px 0 10px 20px;
+    padding: 10px 20px 10px 20px;
+    height: 47px;
+    
+    top: 40%;
 }
+
 .levelbar-data-chips {
     position: absolute;
     width: 100%;
@@ -22,7 +32,8 @@
         border: 1px solid rgba(0, 162, 255, 0.5);
         border-radius: 4px;
         font-size: 10px;
-        /*opacity: 0;
+        /*transform: rotate(90deg);
+        opacity: 0;
         transform: scale(0);
         transition: all 0.3s ease;*/
 }

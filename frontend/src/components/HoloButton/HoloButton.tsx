@@ -44,7 +44,7 @@ export default function HoloButton({data, toggleOutput,setMemory}){
                 <div className="holo-glow"></div>
             </label>
 
-            <div className="input-name" id="input-name">VÆKSTLYS</div>
+            <div className="input-name" id="input-name">HoloButton</div>
             <div className="status-text" id="status-text"></div>
         </div>
     );

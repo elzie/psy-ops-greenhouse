@@ -25,8 +25,8 @@ export default function FillLevelBar({ data }) {
   }, [targetFilled]);
 
   return (
-<div className="levelbar-container">
-
+<div className="container">
+<div className="levelbar">
   <div className="flex gap-[4px]">
     {Array.from({ length: totalSegments -1 }, (_, i) => (
       <div
@@ -45,6 +45,7 @@ export default function FillLevelBar({ data }) {
   <div className="levelbar-data-chips">
     <div className="levelbar-data-chip">{Math.round((data.inputs[0] / 1000) * 104)}%</div>
   </div>
+</div>
 </div>
   );
 }

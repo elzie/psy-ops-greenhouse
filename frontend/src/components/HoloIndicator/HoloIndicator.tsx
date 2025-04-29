@@ -22,7 +22,7 @@ export default function HoloIndicator({ data, toggleOutput, setMemory, name }:an
           id="holo-indicator-check"
           type="checkbox"
           ref={checkboxRef}
-          onClick={() => setMemory(22)}
+          onClick={() => setMemory(23)}
           
         />
             <label className="holo-indicator-checkbox" htmlFor="holo-indicator-check" >
@@ -62,7 +62,7 @@ export default function HoloIndicator({ data, toggleOutput, setMemory, name }:an
                 <div className="holo-indicator-glow"></div>
             </label>
 
-            <div className="input-name2" id="input-name2">{name}</div>
+            <div className="input-name2" id="input-name2">HoloIndicator</div>
             <div className="status-text2" id="status-text2"></div>
             <div className="data-chips">
               <div className="data-chip">{dataChip}</div>
