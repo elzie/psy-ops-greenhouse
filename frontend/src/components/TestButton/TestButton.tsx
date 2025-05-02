@@ -44,7 +44,7 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
       setMemory(flag[0]);
       setTimeout(() => {
           setMemory(flag[0]);
-        }, 500);
+        }, 1000);
       }
     }
     
@@ -60,10 +60,10 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
 const handleMouseDown = () => {
   console.log('mouse down');
   longPressTimeout.current = setTimeout(() => {
-    console.log("Holdt nede i 2 sek � skifter til state 4");
+    console.log("Holdt nede i 2 sek - skifter til state 4");
     setMouseState(true);
     setState(4);
-  }, 1500);
+  }, 1000);
 }
 
 const handleMouseUp = () => {
@@ -73,16 +73,16 @@ const handleMouseUp = () => {
   if (longPressTimeout.current) {
     clearTimeout(longPressTimeout.current);
     longPressTimeout.current = null;
-
+    
     if (state === 4) {
-      console.log("Slipper knap � tilbage til state 1");
+      console.log("Slipper knap - tilbage til state 1");
       setMemory(flag[1]);
       setMouseState(false);
       setState(1);
+      setTimeout(() => {
+        setMemory(flag[1]);
+      }, 650);
     }
-    setTimeout(() => {
-      setMemory(flag[1]);
-    }, 500);
   }
 }
 const handleSomething = (() => {
