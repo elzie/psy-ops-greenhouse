@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FillLevelBar from "../LevelBar/LevelBar";
 import SystemActivate from '../SystemActivateButton/SystemActivate';
 import Orb from "../Orb/Orb";
@@ -28,7 +28,9 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
     const tagvinduerFlag = [46, 47];
     
 
-    const testButton = 'test';
+      useEffect(() => {
+        
+      }, [data]);
     return(
         <div className='mainframe-container'>
 

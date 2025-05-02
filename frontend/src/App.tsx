@@ -15,7 +15,7 @@ export default function App() {
       const json = await res.json();
       setData(json);
       
-      //console.log('coilState: ', coilState);
+      //console.log('data: ', data);
     } catch (error) {
       console.error('Fejl ved hentning af data:', error);
     }
@@ -54,10 +54,10 @@ export default function App() {
 
 
 
-  fetchData();
+  
   useEffect(() => {
-
-  }, []);
+    fetchData();
+  }, [data]);
 
   return (
     <div>

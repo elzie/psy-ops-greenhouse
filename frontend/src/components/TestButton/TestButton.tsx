@@ -10,6 +10,7 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
     const flag = activeFlag;
     const componentName = name;
     const className = `state-${state}`;
+    const longPressTimeout = useRef<NodeJS.Timeout | null>(null);
 
     const handleClick = () => {
         switch (name) {
@@ -17,69 +18,48 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
               handleVækstlys(flag);
               break;
             case 'VANDPUMPE':
-              handleVandpumpe(flag);
+              handleVandpumpe();
               break;
             case 'VENTILATION':
-              handleVentilation(flag, state);
+              handleVentilation();
               break;
             case 'VINDUER':
-              handleVinduer(flag);
+              handleVinduer();
               break;
             default:
               console.log('Ukendt navn:', name);
               break;
           }
-    //   setState((prev) => (prev % 4 + 1) as 1 | 2 | 3 | 4);
-    //    console.log('flag:', flag[0]);
-    //    setMemory(flag[0]);
-
     }
     
     const handleVækstlys = (flag:any) => {
         console.log('VÆKSTLYS', flag);
-        setState((prev) => (prev % 2 + 1) as 1 | 2 );
-        //setState(2);
         setMemory(flag[0]);
-        // ??? - flag fejl.. 
+    }
+
+    const handleVandpumpe = () => {
+      if(data.coils[0] === false){
+      setMemory(flag[0]);
+      setTimeout(() => {
+          console.log('VANDPUMPE');
         
-    }
-
-
-    
-    const handleVandpumpe = (flag:any) => {
-        console.log('VANDPUMPE');
-        setState((prev) => {
-          if (prev === 1) {
-            setMemory(flag[0]);
-            startMonitoringForFalse(); // se nedenfor
-            return 2;
-          }
-          return prev; // g�r ikke noget hvis vi allerede er i 2
-        });
-    }
-
-
-    const startMonitoringForFalse = () => {
-      const interval = setInterval(() => {
-        if (data?.coils?.[1] === false) {
-          console.log('coil[1] er false, skifter tilbage til state 1');
-          setState(1);
           setMemory(flag[0]);
-          clearInterval(interval);
-        }
-      }, 500); // tjek fx hvert halve sekund
-    };
-
-
-    // const [state, setState] = useState(3);
-    const [initialized, setInitialized] = useState(false);
-    const longPressTimeout = useRef<NodeJS.Timeout | null>(null);
+        }, 1000);
+      }
+    }
     
-    let holdTimeout:any = null;
+    const handleVentilation = () => {
 
+    }
+
+    const handleVinduer = () => {
+        console.log('VINDUER');
+    }
+
+ 
 const handleMouseDown = () => {
   console.log('mouse down');
-    longPressTimeout.current = setTimeout(() => {
+  longPressTimeout.current = setTimeout(() => {
     console.log("Holdt nede i 2 sek � skifter til state 4");
     setState(4);
   }, 2000);
@@ -98,35 +78,40 @@ const handleMouseUp = () => {
     }
   }
 }
-const handleVentilation = (flag: any, state: number) => {
-        // Normal klik-logik
-        if (state === 1 && !initialized) {
-            console.log("F�rste klik � fra state 1 til 3");
-            setState(3);
-            setInitialized(true);
-        
-            setTimeout(() => {
-              console.log("5 sekunder er g�et � skifter til state 2");
-              setState(2);
-            }, 5000);
-          } else if (state === 2) {
-            console.log("Klik: fra state 2 til 3");
-            setState(3);
-          } else if (state === 3) {
-            console.log("Klik: fra state 3 til 2");
-            setState(2);
-          }
-        //if(flag[1]) console.log('ventilation flag 2 stop stop stop', flag[1])
-    
-        throw new Error("Function not implemented.");
-    }
-    const handleVinduer = (flag:any) => {
-        console.log('VINDUER');
-    }
+
 useEffect(() => {
+  if (!data?.coils || typeof data.coils[0] !== 'boolean') return;
+  /**
+   * 
+   */
+  switch (name) {
+    case 'VÆKSTLYS':
+      if(data.coils[1] === true){
+        setState(2);
+      } else {
+        setState(1);
+      }
+      break;
+    case 'VANDPUMPE':
+      if(data.coils[0] === true && data.coilsM[0] === true){
+        setState(2);
+      } else if(data.coils[0] === false) {
+        setState(1);
+        
+      }
       
+      break;
+    case 'VENTILATION':
       
-    }, [data.coils]); // kør useEffect når coil[0] ændrer sig
+      break;
+    case 'VINDUER':
+      
+      break;
+    default:
+      console.log('Ukendt navn:', name);
+      break;
+  }
+}, [data.coils]);
     
 
     return(
