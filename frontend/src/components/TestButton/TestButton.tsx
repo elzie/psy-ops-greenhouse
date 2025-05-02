@@ -7,6 +7,7 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
         return <div>...</div>;
       }
     const [state, setState] = useState<1 | 2 | 3 | 4>(1);
+    let mouseState:boolean = false;
     const flag = activeFlag;
     const componentName = name;
     const className = `state-${state}`;
@@ -39,10 +40,9 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
 
     const handleVandpumpe = () => {
       if(data.coils[0] === false){
+      console.log('VANDPUMPE');
       setMemory(flag[0]);
       setTimeout(() => {
-          console.log('VANDPUMPE');
-        
           setMemory(flag[0]);
         }, 1000);
       }
@@ -61,45 +61,67 @@ const handleMouseDown = () => {
   console.log('mouse down');
   longPressTimeout.current = setTimeout(() => {
     console.log("Holdt nede i 2 sek � skifter til state 4");
+    mouseState = true;
     setState(4);
   }, 2000);
 }
 
 const handleMouseUp = () => {
   console.log('mouse up');
+  
   if (longPressTimeout.current) {
     clearTimeout(longPressTimeout.current);
     longPressTimeout.current = null;
 
     if (state === 4) {
       console.log("Slipper knap � tilbage til state 1");
-      setInitialized(false);
+      
       setState(1);
     }
   }
+  mouseState = false;
 }
-
-useEffect(() => {
-  if (!data?.coils || typeof data.coils[0] !== 'boolean') return;
-  /**
-   * 
-   */
+const handleSomething = (() => {
+  //console.log('Data �ndret, ny coils[0]:', data.coils[0]);
   switch (name) {
     case 'VÆKSTLYS':
       if(data.coils[1] === true){
         setState(2);
+        console.log('');
       } else {
         setState(1);
       }
       break;
     case 'VANDPUMPE':
-      if(data.coils[0] === true && data.coilsM[0] === true){
-        setState(2);
-      } else if(data.coils[0] === false) {
-        setState(1);
-        
+      /**
+       * 
+       */
+      switch (data.coils[0]) {
+        case false:
+          setState(1);
+          break;
+        case true:
+          setState(2);
+        case true && mouseState === true:
+          setState(4);
+          break;
+          default:
+            console.log('Ukendt navn:', name);
+            break;
       }
-      
+      // if(data.coils[0] === true &&
+      //   mouseState === false){
+      //   setState(2);
+      //   console.log('set state 2');
+      // } else if(data.coils[0] === false) {
+      //   setState(1);
+        
+      // } else if(data.coils[0] === true &&
+      //   mouseState === true)
+      //   setState(4);
+      /**
+       * 
+       */
       break;
     case 'VENTILATION':
       
@@ -111,7 +133,16 @@ useEffect(() => {
       console.log('Ukendt navn:', name);
       break;
   }
-}, [data.coils]);
+});
+
+useEffect(() => {
+  if (!data?.coils || typeof data.coils[0] !== 'boolean') return;
+  /**
+   * 
+   */
+  handleSomething();
+  
+}, [data.coils[0], handleSomething]);
     
 
     return(

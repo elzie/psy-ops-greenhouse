@@ -30,7 +30,7 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
 
       useEffect(() => {
         
-      }, [data]);
+      }, []);
     return(
         <div className='mainframe-container'>
 
