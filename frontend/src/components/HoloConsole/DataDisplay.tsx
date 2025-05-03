@@ -51,16 +51,22 @@ export default function DataDisplay({ data, setMemory }: Props) {
         <h2 className="text-xl font-semibold mb-2">Memory Coils</h2>
         <div className="grid grid-cols-4 gap-4">
           {data.coilsM.map((mem, idx) => (
+            <div>M{idx + 40}
             <button
               key={idx}
-              onClick={() => setMemory(idx)}
-              className={`flex items-center justify-center h-12 rounded-xl border border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900 cursor-pointer ${
+              onClick={() => {
+                console.log('lol');
+                setMemory(idx + 40);
+              }}
+              className={`flagButton flex items-center justify-center h-12 rounded-xl border border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900 cursor-pointer ${
                 mem ? 'bg-black bg-opacity-50 dark:bg-white dark:bg-opacity-50' : ''
               }`}
             >
               {mem ? 'M' : '-'}
             </button>
-          ))}
+          </div>
+          ))
+          }
         </div>
       </section>
     </div>

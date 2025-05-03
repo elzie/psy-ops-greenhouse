@@ -36,7 +36,7 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
 
             <div className="grid grid-cols-3 grid-rows-4 gap-7  ui-container">
                 <div className="row-span-2 col-start-3 row-start-1 ui-small-box">
-                <HoloConsole data={data}/>
+                <HoloConsole data={data} setMemory={setMemory}/>
                 
                 1
                 </div>

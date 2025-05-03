@@ -82,15 +82,9 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
     }
 
     const handleVinduer = (flag:any) => {
-      if(tagVinduer === false) {
         console.log('VINDUER');
         // 46 åbn, 47 luk
         setMemory(flag[0]);
-        setTagvinduer(true);
-      } else if (tagVinduer === true){
-        setMemory(flag[1]);
-        setTagvinduer(false);
-      }
     }
 
  
@@ -170,13 +164,13 @@ const handleSomething = (() => {
       
       break;
     case 'VINDUER':
-      if (data.coils[5] === true && mouseState === true) {
+      if (data.coils[6] === true && mouseState === true) {
         setState(4);
       }
-      else if (data.coils[5] === true && tagVinduer === false) {
+      else if (data.coils[6] === true && tagVinduer === false) {
         setState(2);
       }
-      else if (data.coils[6] === true && tagVinduer === true) {
+      else if (data.coils[7] === true && tagVinduer === true) {
         setState(3);
       }
       else {

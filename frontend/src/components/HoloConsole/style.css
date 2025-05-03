@@ -1,0 +1,8 @@
+.console-container{
+    position: relative;
+    z-index: 9000;
+}
+
+.flagButton{
+    width: 50px;
+}
