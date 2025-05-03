@@ -25,7 +25,7 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
             case 'VENTILATION':
               handleVentilation(flag);
               break;
-            case 'VINDUER':
+            case 'TAGVINDUER':
               handleVinduer(flag);
               break;
             default:
@@ -64,16 +64,17 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
     const firstClick = useRef(true);
     const handleVentilation = (flag:any) => {
       if (firstClick.current) {
-        // FIRST click behavior (exactly as before)
+        
         setMemory(flag[2]);   // M45
         setTimeout(() => {
           setMemory(flag[0]); // M43
           
         }, 200);
       } else {
-        // SECOND click behavior
+        
         setTimeout(() => {
-          setMemory(flag[1]); // M44 after 5s
+          setMemory(flag[0]); // M43
+          setMemory(flag[1]); // M44 
         }, 5000);
       }
   
@@ -82,9 +83,28 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
     }
 
     const handleVinduer = (flag:any) => {
-        console.log('VINDUER');
+      
+        console.log('VINDUER', tagVinduer);
         // 46 åbn, 47 luk
-        setMemory(flag[0]);
+        if(data.coilsM[8] === false){
+          setMemory(flag[0]); // M46
+          
+          setTimeout(() => {
+            setMemory(flag[0]); // M47 
+            //setTagvinduer(!tagVinduer);
+            //setMemory(flag[2]); // M48
+          }, 1000);
+          
+        } else if(data.coilsM[8] === true) {
+          setMemory(flag[1]); // M46
+          setTimeout(() => {
+            setMemory(flag[1]); // M47 
+            
+            //setMemory(flag[2]); // M48
+          }, 1000);
+          
+        }
+
     }
 
  
@@ -117,17 +137,7 @@ const handleMouseUp = () => {
   }
 }
 const handleSomething = (() => {
-  /**
-     * Alle flag ligger fra 40 og op efter. 
-     * Q1 - Flag M40 = Vandpumpe Digital Start
-     * Q1 - Flag M41 = Vandpumpe Digital Stop
-     * Q2 - Flag M42 = Vækstlys On/Off
-     * Q3 - Flag M43 = Ventilation Lav
-     * Q4 + Q5 - Flag M44 = Ventilation Høj
-     * I9 - Flag M45 = Ventilation Stop
-     * Q6 - Flag M46 = Tagvinduer Åbne
-     * Q7 - Flag M47 = Tagvinduer Lukke
-     */
+
   switch (name) {
     case 'VANDPUMPE':
         if (data.coils[0] === true && mouseState === true) {
@@ -163,14 +173,14 @@ const handleSomething = (() => {
       }
       
       break;
-    case 'VINDUER':
-      if (data.coils[6] === true && mouseState === true) {
+    case 'TAGVINDUER':
+      if (data.coils[5] === true && mouseState === true) {
         setState(4);
       }
-      else if (data.coils[6] === true && tagVinduer === false) {
+      else if (data.coils[5] === true) {
         setState(2);
       }
-      else if (data.coils[7] === true && tagVinduer === true) {
+      else if (data.coils[6] === true) {
         setState(3);
       }
       else {

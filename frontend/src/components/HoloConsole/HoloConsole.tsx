@@ -10,7 +10,7 @@ export default function HoloConsole({ data, setMemory }:any) {
     return (
         <div>
             <div className="console-container">
-            <DataDisplay data={data} setMemory={setMemory}/>;
+            <DataDisplay data={data} setMemory={setMemory}/>
             
             </div>
         </div>

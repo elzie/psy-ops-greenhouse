@@ -68,8 +68,8 @@ app.get('/data', async (req, res) => {
 
     const dataCoilsQ = await client.readCoils(8192, 8);
     ///const coilsAddr = await client.readCoils(8192, 8).coilAddress;
-    const dataInputRegisters = await client.readInputRegisters(0, 8);
-    const dataCoilsM = await client.readCoils(8295, 8);
+    const dataInputRegisters = await client.readInputRegisters(0, 12);
+    const dataCoilsM = await client.readCoils(8295, 10);
     res.json({
       //coilsAddr: coilsAddr.data,
       coils: dataCoilsQ.data,
