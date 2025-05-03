@@ -8,24 +8,25 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
       }
     const [state, setState] = useState<1 | 2 | 3 | 4>(1);
     const [mouseState, setMouseState] = useState(false);
+    const [tagVinduer, setTagvinduer] = useState(false);
     const flag = activeFlag;
     const componentName = name;
     const className = `state-${state}`;
     const longPressTimeout = useRef<NodeJS.Timeout | null>(null);
-
+    
     const handleClick = () => {
         switch (name) {
             case 'VÆKSTLYS':
               handleVækstlys(flag);
               break;
             case 'VANDPUMPE':
-              handleVandpumpe();
+              handleVandpumpe(flag);
               break;
             case 'VENTILATION':
-              handleVentilation();
+              handleVentilation(flag);
               break;
             case 'VINDUER':
-              handleVinduer();
+              handleVinduer(flag);
               break;
             default:
               console.log('Ukendt navn:', name);
@@ -38,7 +39,7 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
         setMemory(flag[0]);
     }
 
-    const handleVandpumpe = () => {
+    const handleVandpumpe = (flag:any) => {
       if(data.coils[0] === false){
       console.log('VANDPUMPE');
       setMemory(flag[0]);
@@ -47,13 +48,49 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
         }, 1000);
       }
     }
-    
-    const handleVentilation = () => {
-
+    /**
+     * Alle flag ligger fra 40 og op efter. 
+     * Q1 - Flag M40 = Vandpumpe Digital Start
+     * Q1 - Flag M41 = Vandpumpe Digital Stop
+     * Q2 - Flag M42 = Vækstlys On/Off
+     * Q3 - Flag M43 = Ventilation Lav
+     * ---------
+     * Q4 + Q5 - Flag M44 = Ventilation Høj
+     * I9 - Flag M45 = Ventilation Aktivering true/false
+     * Q6 - Flag M46 = Tagvinduer Åbne
+     * Q7 - Flag M47 = Tagvinduer Lukke
+     * I11 - Flag 48 = er tagvinduer åbne eller lukkede? 
+     */
+    const firstClick = useRef(true);
+    const handleVentilation = (flag:any) => {
+      if (firstClick.current) {
+        // FIRST click behavior (exactly as before)
+        setMemory(flag[2]);   // M45
+        setTimeout(() => {
+          setMemory(flag[0]); // M43
+          
+        }, 200);
+      } else {
+        // SECOND click behavior
+        setTimeout(() => {
+          setMemory(flag[1]); // M44 after 5s
+        }, 5000);
+      }
+  
+      // flip for next time
+      firstClick.current = !firstClick.current;
     }
 
-    const handleVinduer = () => {
+    const handleVinduer = (flag:any) => {
+      if(tagVinduer === false) {
         console.log('VINDUER');
+        // 46 åbn, 47 luk
+        setMemory(flag[0]);
+        setTagvinduer(true);
+      } else if (tagVinduer === true){
+        setMemory(flag[1]);
+        setTagvinduer(false);
+      }
     }
 
  
@@ -86,16 +123,19 @@ const handleMouseUp = () => {
   }
 }
 const handleSomething = (() => {
-  
+  /**
+     * Alle flag ligger fra 40 og op efter. 
+     * Q1 - Flag M40 = Vandpumpe Digital Start
+     * Q1 - Flag M41 = Vandpumpe Digital Stop
+     * Q2 - Flag M42 = Vækstlys On/Off
+     * Q3 - Flag M43 = Ventilation Lav
+     * Q4 + Q5 - Flag M44 = Ventilation Høj
+     * I9 - Flag M45 = Ventilation Stop
+     * Q6 - Flag M46 = Tagvinduer Åbne
+     * Q7 - Flag M47 = Tagvinduer Lukke
+     */
   switch (name) {
-    case 'VÆKSTLYS':
-      if(data.coils[1] === true){
-        setState(2);
-      } else {
-        setState(1);
-      }
-      break;
-      case 'VANDPUMPE':
+    case 'VANDPUMPE':
         if (data.coils[0] === true && mouseState === true) {
           setState(4);
         }
@@ -106,10 +146,42 @@ const handleSomething = (() => {
           setState(1);
         }
         break;
+    case 'VÆKSTLYS':
+      if(data.coils[1] === true){
+        setState(2);
+      } else {
+        setState(1);
+      }
+      break;
+      
     case 'VENTILATION':
+      if ((data.coils[2] === true || data.coils[4] === true) && mouseState === true) {
+        setState(4);
+      }
+      else if (data.coils[2] === true) {
+        setState(2);
+      }
+      else if (data.coils[4] === true) {
+        setState(3);
+      }
+      else {
+        setState(1);
+      }
       
       break;
     case 'VINDUER':
+      if (data.coils[5] === true && mouseState === true) {
+        setState(4);
+      }
+      else if (data.coils[5] === true && tagVinduer === false) {
+        setState(2);
+      }
+      else if (data.coils[6] === true && tagVinduer === true) {
+        setState(3);
+      }
+      else {
+        setState(1);
+      }
       
       break;
     default:
