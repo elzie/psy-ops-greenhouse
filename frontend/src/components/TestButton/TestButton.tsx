@@ -68,7 +68,7 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
         setMemory(flag[2]);   // M45
         setTimeout(() => {
           setMemory(flag[0]); // M43
-          
+          firstClick.current = !firstClick.current;
         }, 200);
       } else {
         
@@ -76,10 +76,13 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
           setMemory(flag[0]); // M43
           setMemory(flag[1]); // M44 
         }, 5000);
+        setMemory(flag[0]); // M43
+          setMemory(flag[1]); // M44 
+        firstClick.current = !firstClick.current;
       }
   
       // flip for next time
-      firstClick.current = !firstClick.current;
+      
     }
 
     const handleVinduer = (flag:any) => {
@@ -92,16 +95,16 @@ export default function TestButton({ data, toggleOutput, setMemory, name, active
           setTimeout(() => {
             setMemory(flag[0]); // M47 
             //setTagvinduer(!tagVinduer);
-            //setMemory(flag[2]); // M48
-          }, 1000);
+            setMemory(flag[2]); // M48
+          }, 10000);
           
         } else if(data.coilsM[8] === true) {
           setMemory(flag[1]); // M46
           setTimeout(() => {
             setMemory(flag[1]); // M47 
             
-            //setMemory(flag[2]); // M48
-          }, 1000);
+            setMemory(flag[2]); // M48
+          }, 10000);
           
         }
 
@@ -163,10 +166,10 @@ const handleSomething = (() => {
         setState(4);
       }
       else if (data.coils[2] === true) {
-        setState(2);
+        setState(3);
       }
       else if (data.coils[4] === true) {
-        setState(3);
+        setState(2);
       }
       else {
         setState(1);
