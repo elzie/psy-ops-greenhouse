@@ -46,10 +46,12 @@ export default function MainFrame({ data, toggleOutput, setMemory }:any){
                     <FillLevelBar data={data}/>
                 </div>
                 <div className="col-span-4 row-span-2 row-start-5 ui-small-box">
-                    <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'VANDPUMPE'} activeFlag={vandPumpeFlag} />
-                    <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'VÆKSTLYS'} activeFlag={vækstlysFlag}/>
-                    <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'VENTILATION'} activeFlag={ventilationFlag}/>
-                    <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'TAGVINDUER'} activeFlag={tagvinduerFlag}/>
+                    <div className="digitalButton">
+                        <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'VANDPUMPE'} activeFlag={vandPumpeFlag} />
+                        <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'VÆKSTLYS'} activeFlag={vækstlysFlag}/>
+                        <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'VENTILATION'} activeFlag={ventilationFlag}/>
+                        <TestButton data={data} toggleOutput={toggleOutput} setMemory={setMemory} name={'TAGVINDUER'} activeFlag={tagvinduerFlag}/>
+                    </div> 
                 </div>
             </div>
                

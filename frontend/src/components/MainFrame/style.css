@@ -23,14 +23,20 @@ background: linear-gradient(0deg, rgba(2, 75, 92, 1) 0%, rgba(1, 35, 45, 1) 20%,
 
 .ui-small-box{
   align-items: center;
-  display: flex;
+  /*display: flex;*/
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
   /*border: 1px solid white;*/
 }
+.digitalButton{
+  display: flex;
+  justify-content: space-around;
+}
+.digitalButton > div {
 
+}
 .ui-main-box{
   display: flex;
   padding: 30px;
