@@ -6,3 +6,28 @@
 .flagButton{
     width: 50px;
 }
+
+.data1{
+    display: table;
+    width: 100%;
+}
+.data1 > div {
+    display: inline-block;
+    width: 45%; /* adjust */
+
+    
+    background: rgba(256, 256, 256, 0.5);
+    padding: 20px;
+    
+}
+.currentTemperature{
+    float: right; 
+    text-align: right;
+    color: rgba(10, 10, 10, 0.9);
+    font-size: 38px;
+}
+
+.currentHumidity{
+    margin-right: 20px;
+    float: left; 
+}

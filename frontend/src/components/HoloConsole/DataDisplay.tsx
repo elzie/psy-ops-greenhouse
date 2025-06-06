@@ -25,7 +25,19 @@ const coilNames: string[] = [
 
 export default function DataDisplay({ data, setMemory }: Props) {
   return (
-    <div className="space-y-6 p-4">
+    <div className="">
+      <section className="bg-transparent rounded-2xl shadow-none p-1">
+        <div className='data1'>
+          <div className="currentTemperature">
+            {data.inputs[0]}&deg;
+          </div>
+          <div className="currentHumidity">
+            H2O: {data.inputs[1]}
+          </div>
+          
+        </div>
+      </section>
+      
       {/* Coils Section */}
       <section className="bg-transparent rounded-2xl shadow-none p-1">
         <h2 className="text-xl font-semibold mb-2">Coils</h2>

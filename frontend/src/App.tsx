@@ -3,6 +3,8 @@ import './App.css'
 import React, { useState, useEffect } from 'react';
 import MainFrame from './components/MainFrame/MainFrame';
 
+const SERVER_IP = "192.168.0.104";
+
 export default function App() {
   const [data, setData] = useState(null);
   
@@ -11,7 +13,7 @@ export default function App() {
   
   const fetchData = async () => {
     try {
-      const res = await fetch('http://192.168.0.111:3000/data');
+      const res = await fetch(`http://${SERVER_IP}:3000/data`);
       const json = await res.json();
       setData(json);
       
@@ -25,7 +27,7 @@ export default function App() {
 
   const toggleOutput = async (index:any) => {
     try {
-      await fetch(`http://192.168.0.111:3000/toggle-output/${index}`, {
+      await fetch(`http://${SERVER_IP}:3000/toggle-output/${index}`, {
         method: 'POST',
       });
       console.log('client toggleOutput:', index);
@@ -37,7 +39,7 @@ export default function App() {
   const setMemory = async (index:any) => {
     const indexCorrected = index - 1;
     try {
-      await fetch(`http://192.168.0.111:3000/set-memory/${indexCorrected}`, {
+      await fetch(`http://${SERVER_IP}:3000/set-memory/${indexCorrected}`, {
         method: 'POST',
         
       });

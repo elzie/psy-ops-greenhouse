@@ -6,12 +6,14 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 const app = express();
 const client = new ModbusRTU();
 
+
 const PLC_IP = "192.168.0.105";
 const PLC_PORT = 502;
+const HOST_IP = "192.168.0.104";
 
 const allowedOrigins = [
-  'http://192.168.0.111:3001',
-  'http://192.168.0.111:5173',
+  `http://${HOST_IP}:3001`,
+  `http://${HOST_IP}:5173`,
   'http://localhost:3001',
   'http://localhost:5173'
 ];
@@ -68,7 +70,7 @@ app.get('/data', async (req, res) => {
 
     const dataCoilsQ = await client.readCoils(8192, 8);
     ///const coilsAddr = await client.readCoils(8192, 8).coilAddress;
-    const dataInputRegisters = await client.readInputRegisters(0, 12);
+    const dataInputRegisters = await client.readInputRegisters(0, 2);
     const dataCoilsM = await client.readCoils(8295, 10);
     res.json({
       //coilsAddr: coilsAddr.data,

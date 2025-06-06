@@ -13,14 +13,15 @@ export default function GraphOne({data}:any) {
     const timestamp = new Date().toLocaleTimeString();
     const newValue = {
       time: timestamp,
-      value: Math.round((data.inputs[0] / 1000) * 104)
+      value1: Math.round((data.inputs[0] / 1000) * 104),
+      value2: Math.round((data.inputs[1] / 1000) * 104)
     };
 //console.log('new value:', newValue);
     setGraphValues(prev => {
       const updated = [...prev, newValue];
       return updated.slice(-20); // behold kun de seneste 20
     });
-  }, [data.inputs?.[0]]); // reager kun når input[0] ændrer sig
+  }, [data.inputs?.[0], data.inputs?.[1]]); // reager kun når input[0] ændrer sig
 
 
   return (
@@ -33,11 +34,21 @@ export default function GraphOne({data}:any) {
           <Tooltip />
           <Line
             type="monotone"
-            dataKey="value"
+            dataKey="value1"
             stroke="#00d084"
             strokeWidth={2}
             dot={false}
             isAnimationActive={true}
+            name="Input 1"
+          />
+          <Line
+            type="monotone"
+            dataKey="value2"
+            stroke="#FF5733"
+            strokeWidth={2}
+            dot={false}
+            isAnimationActive={true}
+            name="Input 2"
           />
         </LineChart>
       </ResponsiveContainer>
