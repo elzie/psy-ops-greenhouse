@@ -29,10 +29,10 @@ export default function DataDisplay({ data, setMemory }: Props) {
       <section className="bg-transparent rounded-2xl shadow-none p-1">
         <div className='data1'>
           <div className="currentTemperature">
-            {data.inputs[0]}&deg;
+            {data.inputs[1] / 10}&deg;
           </div>
           <div className="currentHumidity">
-            H2O: {data.inputs[1]}
+            {data.inputs[0] / 10} %
           </div>
           
         </div>

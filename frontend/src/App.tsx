@@ -3,14 +3,10 @@ import './App.css'
 import React, { useState, useEffect } from 'react';
 import MainFrame from './components/MainFrame/MainFrame';
 
-const SERVER_IP = "192.168.0.104";
+const SERVER_IP = "192.168.0.101";
 
 export default function App() {
   const [data, setData] = useState(null);
-  
-  const [now, setNow] = useState(new Date());
-  const [msg, setMsg] = useState('');
-  
   const fetchData = async () => {
     try {
       const res = await fetch(`http://${SERVER_IP}:3000/data`);
