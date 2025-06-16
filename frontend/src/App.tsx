@@ -59,9 +59,7 @@ export default function App() {
 
   return (
     <div>
-      
-    <MainFrame data={data} toggleOutput={toggleOutput} setMemory={setMemory}/>
-
+      <MainFrame data={data} toggleOutput={toggleOutput} setMemory={setMemory}/>
     </div>
   );
 }
